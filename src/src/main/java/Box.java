@@ -1,4 +1,4 @@
-public class Box<T, V extends Number> {
+public class Box<T, V extends Number> implements BoxOperations<V>{
     T value;
     private String name;
     private V largestValue;
@@ -8,16 +8,18 @@ public class Box<T, V extends Number> {
         this.name = name;
     }
 
+    @Override
+    public V getLargestValue() {
+        return largestValue;
+    }
+
+    @Override
     public void setLargestValue(V value1, V value2){
         if ( value1.doubleValue() > value2.doubleValue()){
             this.largestValue = value1;
         } else {
             this.largestValue = value2;
         }
-    }
-
-    public V getLargestValue() {
-        return largestValue;
     }
 
     public T getValue() {
