@@ -20,7 +20,11 @@ public class Main {
         box.castValue(fruit);
         System.out.println(box.castValue(fruit));
 
-        Box newBox = new Box<Integer>(2, "My Box");
+        Box newBox = new Box<Integer, Integer>(2, "My Box");
         System.out.println(box.hasSameName(newBox));
+
+        box.setLargestValue(1.6F,2.4F);
+        System.out.println(box.getLargestValue());
+
     }
 }
