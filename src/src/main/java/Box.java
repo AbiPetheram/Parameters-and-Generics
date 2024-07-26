@@ -1,4 +1,8 @@
-public class Box<T, V extends Number> implements BoxOperations<V>{
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+
+public class Box<T, V extends Number & Comparable<V>> implements BoxOperations<V>{
     T value;
     private String name;
     private V largestValue;
@@ -7,6 +11,8 @@ public class Box<T, V extends Number> implements BoxOperations<V>{
         this.value = value;
         this.name = name;
     }
+
+
 
     @Override
     public V getLargestValue() {
@@ -51,5 +57,9 @@ public class Box<T, V extends Number> implements BoxOperations<V>{
             return true;
         }
         return false;
+    }
+
+    public void setLargestValueFromList(List<? extends V> list) {
+      largestValue = Collections.max(list);
     }
 }
