@@ -12,4 +12,12 @@ public class Box<T> {
     public void setValue(T value) {
         this.value = value;
     }
+
+    public <V> T castValue(V value) {
+        try {return (T) value;
+        } catch (ClassCastException e) {
+            System.out.println("Failed: cannot cast this value");
+        }
+        return null;
+    }
 }
