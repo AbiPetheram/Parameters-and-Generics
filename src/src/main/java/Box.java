@@ -7,8 +7,7 @@ public class Box<T, V extends Number & Comparable<V>> implements BoxOperations<V
     private String name;
     private V largestValue;
 
-    public Box(T value, String name) {
-        this.value = value;
+    public Box(String name) {
         this.name = name;
     }
 
@@ -59,7 +58,7 @@ public class Box<T, V extends Number & Comparable<V>> implements BoxOperations<V
         return false;
     }
 
-    public void setLargestValueFromList(List<? extends V> list) {
+    public void setLargestValueFromList(List<V> list) {
       largestValue = Collections.max(list);
     }
 }
